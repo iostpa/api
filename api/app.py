@@ -11,7 +11,7 @@ CORS(app)
 
 class Page(Resource):
     def get(self):
-        return {'message': 'This is the home page! The following endpoints are available below this message. If you have issues or want me to add more then please contact me.',
+        return {'message': 'This is the home page! The following endpoints are available below this message. If you have any issues or want me to add more then please contact me.',
                 'endpoints': "/uma /touhou /horse"}
         
 # thanks https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files
