@@ -1,0 +1,6 @@
+flask>=3.1.2
+flask-cors>=6.0.2
+flask-restful>=0.3.10
+gunicorn>=23.0.0
+python-dotenv>=1.2.1
+wheel>=0.45.1
