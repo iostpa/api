@@ -1,13 +1,25 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from flask_cors import CORS
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 from random import randint
+from werkzeug.middleware.proxy_fix import ProxyFix
 import json
+import os
 
 
 app = Flask(__name__, static_url_path='/static')
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1)
 api = Api(app)
 CORS(app)
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    default_limits=["5 per second"],
+    storage_uri=(os.getenv("MONGO")),
+    strategy="fixed-window",
+)
 
 class Page(Resource):
     def get(self):
