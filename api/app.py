@@ -17,7 +17,7 @@ class Page(Resource):
 # thanks https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files
 class Horse(Resource):
    def get(self):
-       return {'image_url': f'http://127.0.0.1:8000/static/horse/{randint(1,10)}.jpg'}
+       return {'image_url': f'https://api.iostpa.com/static/horse/{randint(1,10)}.jpg'}
         
 # thanks https://stackoverflow.com/questions/52645142/selecting-random-values-from-a-json-file
 class Uma(Resource):
