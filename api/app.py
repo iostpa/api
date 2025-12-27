@@ -27,13 +27,13 @@ class Page(Resource):
         
 # thanks https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files
 class Horse(Resource):
-    @limiter.limit("5/second", error_message="Slow down! You've reached the rate limit.")
+    @limiter.limit("3/second", error_message="Slow down! You've reached the rate limit.")
     def get(self):
        return {'image_url': f'https://api.iostpa.com/static/horse/{randint(1,10)}.jpg'}
         
 # thanks https://stackoverflow.com/questions/52645142/selecting-random-values-from-a-json-file
 class Uma(Resource):
-    @limiter.limit("5/second", error_message="Slow down! You've reached the rate limit.")
+    @limiter.limit("3/second", error_message="Slow down! You've reached the rate limit.")
     def get(self):
         def random_uma():
             with open('api/json/uma.json') as fp:
@@ -44,7 +44,7 @@ class Uma(Resource):
         return random_uma()
 
 class Touhou(Resource):
-    @limiter.limit("5/second", error_message="Slow down! You've reached the rate limit.")
+    @limiter.limit("3/second", error_message="Slow down! You've reached the rate limit.")
     def get(self):
         def random_touhou():
             with open('api/json/touhou.json') as fp:
