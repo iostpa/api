@@ -12,7 +12,7 @@ import os
 app = Flask(__name__, static_url_path='/static')
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1)
 api = Api(app)
-CORS(app)
+cors = CORS(app)
 limiter = Limiter(
     get_remote_address,
     app=app,
