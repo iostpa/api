@@ -1,9 +1,8 @@
 name: Deploy image
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 
 jobs:
   Deploy:
