@@ -1,0 +1,10 @@
+services:
+  api:
+    image: cutedog5695/api:main
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+    enviroment:
+      - FLASK_APP=app
+      - FLASK_ENV=production
+      - MONGO=
