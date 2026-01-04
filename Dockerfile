@@ -5,7 +5,7 @@ FROM python:latest
 WORKDIR /app
 
 # Copy the requirements.txt file to the working directory
-COPY pyproject.toml ./
+COPY requirements.txt ./
 
 # Install pip and the Python dependencies listed in requirements.txt
 RUN pip install --upgrade pip && \
