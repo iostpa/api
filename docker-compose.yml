@@ -1,4 +1,15 @@
 services:
+  mongo:
+    image: mongo:latest
+    restart: always
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - data-volume:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=api
+      - MONGO_INITDB_ROOT_PASSWORD=password
   api:
     image: cutedog5695/api:main
     restart: unless-stopped
@@ -7,4 +18,4 @@ services:
     enviroment:
       - FLASK_APP=app
       - FLASK_ENV=production
-      - MONGO=
+      - MONGO=mongodb://api:password@mongodb:27017/?directConnection=true

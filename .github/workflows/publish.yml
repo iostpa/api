@@ -1,12 +1,12 @@
 name: Deploy image
 
 on:
-  release:
-    types: [published]
+  push:
+    branches: main
 
 jobs:
   Deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
