@@ -9,7 +9,7 @@ COPY pyproject.toml ./
 
 # Install pip and the Python dependencies listed in requirements.txt
 RUN pip install --upgrade pip && \
-    pip install -r pyproject.toml
+    pip install -r requirements.txt
 
 # Copy the rest of the application code to the working directory
 COPY . .
