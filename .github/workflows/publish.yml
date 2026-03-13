@@ -3,6 +3,10 @@ name: Deploy image
 on:
   push:
     branches: main
+    paths:
+      - "api/*"
+      - "requirements.txt"
+      - "Dockerfile"
 
 jobs:
   Deploy:

@@ -1,0 +1,7 @@
+version: 2
+updates:
+    - package-ecosystem: "pip" # See documentation for possible values
+      target-branch: "main"
+      directory: "/" # Location of package manifests
+      schedule:
+          interval: "daily"

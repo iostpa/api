@@ -22,8 +22,9 @@ limiter = Limiter(
 
 class Page(Resource):
     def get(self):
-        return {'message': 'This is the home page! The following endpoints are available below this message. If you have any issues or want me to add more then please contact me.',
-                'endpoints': "/uma /touhou /horse"}
+        return {'message': 'This is the home page! The following endpoints are available below this message. If you have any issues or want me to add more then please contact me or make a GitHub issue in the repository.',
+                'endpoints': "/uma /touhou (I won't be adding more artworks to uma and touhou by myself) /horse",
+                'repository': "https://github.com/iostpa/api"}
         
 # thanks https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files
 class Horse(Resource):
