@@ -23,7 +23,7 @@ limiter = Limiter(
 class Page(Resource):
     def get(self):
         return {'message': 'This is the home page! The following endpoints are available below this message. If you have any issues or want me to add more then please contact me or make a GitHub issue in the repository.',
-                'endpoints': "/uma /touhou (I won't be adding more artworks to uma and touhou by myself) /horse",
+                'endpoints': "/uma /touhou (I won't be adding more artworks to uma and touhou by myself) /horse /arknights (/arknights was added because a user suggested it, the artworks added are not from my side)",
                 'repository': "https://github.com/iostpa/api"}
         
 # thanks https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files
@@ -54,11 +54,23 @@ class Touhou(Resource):
                 random_index = randint(0, len(result)-1)
                 return result[random_index]
         return random_touhou()
+    
+class Arknights(Resource):
+    @limiter.limit("3/second", error_message="Slow down! You've reached the rate limit.")
+    def get(self):
+        def random_arknights():
+            with open('api/json/arknights.json') as fp:
+                data = json.load(fp)
+                result = data["results"]
+                random_index = randint(0, len(result)-1)
+                return result[random_index]
+        return random_arknights()
 
 api.add_resource(Page, '/')
 api.add_resource(Uma, '/uma')
 api.add_resource(Touhou, '/touhou')
 api.add_resource(Horse, '/horse')
+api.add_resource(Arknights, '/arknights')
 
 @app.errorhandler(404)
 def not_found(error):
