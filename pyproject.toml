@@ -5,7 +5,7 @@ description = "iostpa's API shenanigans"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "flask>=3.1.2",
+    "flask>=3.1.3",
     "flask-cors>=6.0.2",
     "flask-limiter[mongodb]>=4.1.1",
     "flask-restful>=0.3.10",
