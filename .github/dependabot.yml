@@ -5,3 +5,10 @@ updates:
       directory: "/" # Location of package manifests
       schedule:
           interval: "daily"
+    groups:
+      # Specify a name for the group, which will be used in pull request titles
+      # and branch names
+      dependencies:
+        applies-to: version-updates
+        patterns:
+            - "*"
