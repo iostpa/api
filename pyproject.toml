@@ -11,6 +11,6 @@ dependencies = [
     "flask-restful>=0.3.10",
     "gunicorn>=23.0.0",
     "python-dotenv>=1.2.1",
-    "werkzeug>=3.1.4",
+    "werkzeug>=3.1.6",
     "wheel>=0.46.2",
 ]
