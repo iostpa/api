@@ -26,7 +26,7 @@ jobs:
       - name: Login to git.iostpa.com (locally)
         uses: docker/login-action@v4
         with:
-          registry: 192.168.1.24:3231
+          registry: http://192.168.1.24:3231
           username: ${{ github.repository_owner }}
           password: ${{ secrets.MIRROR_TOKEN }}
       - name: Build and Push Docker Image
