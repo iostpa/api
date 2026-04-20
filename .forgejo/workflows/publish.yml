@@ -4,11 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "api/*"
-      - "pyproject.toml"
-      - "Dockerfile"
-      - "uv.lock"
 
 jobs:
   Deploy:

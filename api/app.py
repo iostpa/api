@@ -96,4 +96,4 @@ api.add_resource(Arknights, "/arknights")
 
 @app.errorhandler(404)
 def not_found(error):
-    return {"message": "This does not exist!", "code": 404}, 404
+    return {"message": "This endpoint does not exist!", "code": 404}, 404
