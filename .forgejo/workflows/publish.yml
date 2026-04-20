@@ -1,0 +1,44 @@
+name: Publish Docker Image
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "api/*"
+      - "pyproject.toml"
+      - "Dockerfile"
+      - "uv.lock"
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+      - name: Login to ghcr.io
+        uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.MAIN_TOKEN }}
+      - name: Login to git.iostpa.com
+        uses: docker/login-action@v4
+        with:
+          registry: git.iostpa.com
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.MIRROR_TOKEN }}
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/reviewbot:latest
+            git.iostpa.com/${{ github.repository_owner }}/reviewbot:latest
