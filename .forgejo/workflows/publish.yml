@@ -35,5 +35,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/reviewbot:latest
-            git.iostpa.com/${{ github.repository_owner }}/reviewbot:latest
+            ghcr.io/${{ github.repository_owner }}/api:latest
+            git.iostpa.com/${{ github.repository_owner }}/api:latest
