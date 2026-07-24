@@ -12,4 +12,4 @@ Note: might be inaccurate since the API uses uv instead of pip now
 Use the docker-compose.yml file and run it, though I wouldn't recommend since some parts of the API use my domain
 
 ## Contribute
-Easiest would be to send a list of links in a GitHub issue and I'll add them from there. If you want to also fix my bad code then go ahead.
+Easiest would be to send a list of links in a issue (either Codeberg or GitHub) and I'll add them from there. If you want to also fix my bad code then go ahead.
