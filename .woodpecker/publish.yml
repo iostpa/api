@@ -1,32 +1,17 @@
 name: Publish Docker Image
 
-on:
-  push:
-    branches:
-      - main
+when:
+  - event: push
+    branch: main
 
-jobs:
-  Deploy:
-    image: ghcr.io/catthehacker/ubuntu:full-24.04
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v6
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v4
-      - name: Login to ghcr.io
-        uses: docker/login-action@v4
-        with:
-          registry: ghcr.io
-          username: iostpa
-          password: ${GIT_TOKEN}
-       environment:
-         TOKEN_ENV:
-           from_secret: GIT_TOKEN
-      - name: Build and Push Docker Image
-        uses: docker/build-push-action@v7
-        with:
-          context: .
-          push: true
-          tags: |
-            ghcr.io/iostpa/api:latest
+steps:
+  - name: build-and-push
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      registry: ghcr.io
+      repo: ghcr.io/iostpa/api
+      tags: latest
+      context: .
+      username: iostpa
+      password:
+        from_secret: git_token
