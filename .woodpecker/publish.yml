@@ -1,5 +1,3 @@
-name: Publish Docker Image
-
 when:
   - event: push
     branch: main
